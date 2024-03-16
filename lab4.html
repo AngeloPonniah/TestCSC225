@@ -28,11 +28,11 @@
 </style>
 
     <script>
-        function getOrderDetails() {
+        function submitorder() {
 
-            const name = prompt("Please enter your name:");
-            const itemRequested = prompt("What item would you like to order?");
-            const numberOfItems = parseInt(prompt("How many items would you like to order? (1-99)"));
+            let name = prompt("Please enter your name:");
+            let itemRequested = prompt("What item would you like to order?");
+            let numberOfItems = parseInt(prompt("How many items would you like to order? (1-99)"));
 
 
             if (isNaN(numberOfItems) || numberOfItems < 1 || numberOfItems > 99) {
@@ -41,13 +41,14 @@
             }
 
 
-            const currentTime = new Date();
-            const hours = currentTime.getHours();
+            let currentTime = new Date();
+            let hours = currentTime.getHours();
             let greeting;
 
 
-            if (hours < 12) {
-                greeting = "Good morning";
+            if (hours < 12)
+            {
+                greeting = "Good Morning";
             } else if (hours < 18) {
                 greeting = "Good afternoon";
             } else {
@@ -55,7 +56,7 @@
             }
 
 
-            const arrivalDate = new Date();
+            let arrivalDate = new Date();
             arrivalDate.setDate(currentTime.getDate() + 7);
 
 
@@ -65,7 +66,7 @@
         }
     </script>
 </head>
-<body onload="getOrderDetails()">
+<body onload="submitorder()">
     <div class = "jumbotron">
         <h1>Store</h1>
     </div>
