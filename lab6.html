@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Facts</title>
+    <link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 0 auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Add margin to the bottom of the button */
+    cursor: pointer;
+}
+.centered-image {
+    text-align: center;
+}
+
+.center-button {
+    display: block;
+    margin: 0 auto;
+}
+ </style>  
+</head>
+<body>
+    <h1>Interesting Cat Facts</h1>
+    <button id="LoadFacts" class="center-button">Load Cat Facts</button>
+    <table id="factsTable">
+        <tr>
+            <th>Fact ID</th>
+            <th>Fact</th>
+        </tr>
+    </table>
+    <div class="centered-image">
+        <img id="catPhoto" src="cat.jpg"> 
+    </div>
+   
+   <script src="script.js"></script>
+</body>
+
+</html>
