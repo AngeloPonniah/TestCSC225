@@ -64,22 +64,24 @@ background-repeat:no-repeat;
 
     <script>
         function registerUser() {
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const dob = document.getElementById('dob').value;
-
+            //get user data from form fields
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const dob = document.getElementById('dob').value.trim();
+// validates required fields
             if (!firstName || !lastName || !email || !password || !dob) {
-                alert('All fields are required.');
+                alert('Please fill in All required fields.');
                 return;
             }
-
-            if (!password.includes('!') && !password.includes('?')) {
-                alert('Password must contain a special character: ! or ?');
-                return;
-            }
-
+//validate password strengths 
+           if (password.length < 8  || !/[a-z]/i.test(password) || !/[0-9]/.test(password))
+            {
+alert ('Password must be at least 8 characters and contains a letter and a number.');
+return;
+           }
+//Simulate user registration on the other side (clients)
             document.getElementById('registrationStatus').innerHTML = `
                 <div class="alert alert-success" role="alert">
                     Registration Successful!<br>
@@ -87,6 +89,12 @@ background-repeat:no-repeat;
                     Email: ${email}<br>
                     Date of Birth: ${dob}
                 </div>`;
+                console.log(' registration data: ',{
+                    firstName ,
+                    lastName ,
+                    email ,
+                }); // Simulate sending data to server (on the server side it stores hashed passwords)
+            
         }
     </script>
 </body>

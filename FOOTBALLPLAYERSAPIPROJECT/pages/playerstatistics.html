@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Statistics</title>
+    <script src="../app/js/index.js"></script>
+
+    <script>
+
+        var id = '', season = '';
+
+        location.search.slice(1).split("&").forEach(function (pair) {
+            pair = pair.split("=");
+            if (decodeURIComponent(pair[0]) == 'id') {
+
+                id = decodeURIComponent(pair[1]);
+            }
+            if (decodeURIComponent(pair[0]) == 'season') {
+                season = decodeURIComponent(pair[1]);
+            }
+
+        })
+
+        displayPlayerstats(id, season);
+
+    </script>
+</head>
+
+<body>
+
+    <div class=".container-fluid">
+        <h1>Player Statistics</h1>
+        <div id="playerstatistics">
+            <div id="playerImage">
+            </div>
+            <table class="topScorers table table-striped">
+                <tbody id="playerStatisticsBody">
+                </tbody>
+
+            </table>
+        </div>
+        <div><a href="../1index.html">Back</a></div>
+    </div>
+    
+</body>
+
+</html>

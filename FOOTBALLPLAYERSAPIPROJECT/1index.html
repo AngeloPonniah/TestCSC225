@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootBall</title>
+
+<link rel="stylesheet" href="app/css/index.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<script src="app/js/index.js"></script>
+
+<script>
+    //function invoked on load of page
+    displayTopScorers(); //this function is in app/js/index.js  file
+</script>
+
+
+</head>
+
+<body>
+    <div class=".container-fluid">
+        <h1>FootBall - Top Scorers</h1>
+        <div id="topScorers">
+            <table class="topScorers table table-striped">
+                <thead>
+                    <tr>
+                      <th>Player Id</th>
+                      <th>Player Name</th>
+                      <th>Age</th>
+                      <th></th>
+                    </tr>
+                </thead>
+                <tbody id="topsScorersBody"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

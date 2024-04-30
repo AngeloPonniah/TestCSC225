@@ -1,0 +1,40 @@
+body{
+
+font-family: Arial, Helvetica, sans-serif; 
+margin: 20px; /*adds some margin around the body*/
+}
+
+h1 {
+
+text-align: center; /*center alligns the title*/
+margin-bottom:20px; /*adds space below the title*/
+}
+
+.table-striped > tbody > tr:nth-child(odd)
+{
+background-color: darksalmon; /*adds a type pink color  background for odd table rows*/
+}
+
+.topScorers{
+width: 100%; /*Make the table occupy full width*/
+    font-size: medium;
+    border-collapse: collapse; /*Adds a thin border to table cells*/
+}
+
+.topScorers th, .topScorers td {
+
+padding: 10px; /*Adds a padding to table cells*/
+Border: 1px solid #ddd; 
+
+}
+
+.topScorers th{
+
+background-color: darksalmon;
+}
+
+.topScorers td:last-child {
+
+text-align: right; /* alligns the last columns (to the right) */
+
+}
