@@ -25,7 +25,7 @@ function displayTopScorers() {
             rows.push(row);
 
         })
-        document.getElementById("topsScorersBody").innerHTML = rows.join('');
+        document.getElementById("topsScorersBody").innerHTML = rows.join(''); //replacing the 
 
     })
 }
