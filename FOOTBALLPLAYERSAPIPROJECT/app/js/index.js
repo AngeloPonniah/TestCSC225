@@ -1,3 +1,7 @@
+var players=[];
+
+
+
 function displayTopScorers() {
 
 
@@ -6,7 +10,7 @@ function displayTopScorers() {
     //fetch top scorers for season 2020
     fetchTopScorers(season).then((response) => {
 
-        const players = response.response;
+         players = response.response;
         players.map((item) => {
 
 
@@ -25,9 +29,21 @@ function displayTopScorers() {
             rows.push(row);
 
         })
-        document.getElementById("topsScorersBody").innerHTML = rows.join(''); //replacing the 
+        document.getElementById("topsScorersBody").innerHTML = rows.join('');  
+searchbar();
+    })
+}
+
+function searchbar(){
+    var rows = [];
+    players.map((item) => {
+        var opt = document.createElement('OPTION');
+        opt.text = item.player.firstname + ' ' + item.player.lastname;
+        opt.value = item.player.id;
+        document.getElementById('searchbar').options.add(opt);
 
     })
+
 }
 
 function displayPlayerstats(id, season) {
