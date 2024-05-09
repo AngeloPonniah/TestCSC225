@@ -1,50 +1,33 @@
-var players=[];
+var players = [];
+const curSeason = 2020;
 
 
+function displayPlayerRows(curPlayers) {
+    var rows = [];
+    curPlayers.map((item) => {
+        const row = `<tr>
+        <td>${item.player.id}</td>
+        <td>${item.player.firstname} ${item.player.lastname}</td>
+        <td>${item.player.age}</td>
+        <td><a href="pages/playerStatistics.html?id=${item.player.id}&&season=${curSeason}">View Details</a></td>
+         </tr>`
+        rows.push(row);
+
+    })
+
+    document.getElementById("topsScorersBody").innerHTML = rows.join('');
+
+}
 
 function displayTopScorers() {
-
-
-    var rows = [];
-    let season = 2020;
     //fetch top scorers for season 2020
-    fetchTopScorers(season).then((response) => {
+    fetchTopScorers(curSeason).then((response) => {
 
-         players = response.response;
-        players.map((item) => {
-
-
-            const row = `<tr>
-
-
-<td>${item.player.id}</td>
-<td>${item.player.firstname} ${item.player.lastname}</td>
-<td>${item.player.age}</td>
-<td><a href="pages/playerStatistics.html?id=${item.player.id}&&season=${season}">View Details</a></td>
-    
-    
-    
-    
-   </tr>`
-            rows.push(row);
-
-        })
-        document.getElementById("topsScorersBody").innerHTML = rows.join('');  
-searchbar();
+        players = response.response;
+        displayPlayerRows(players);
     })
 }
 
-function searchbar(){
-    var rows = [];
-    players.map((item) => {
-        var opt = document.createElement('OPTION');
-        opt.text = item.player.firstname + ' ' + item.player.lastname;
-        opt.value = item.player.id;
-        document.getElementById('searchbar').options.add(opt);
-
-    })
-
-}
 
 function displayPlayerstats(id, season) {
 
@@ -58,35 +41,35 @@ function displayPlayerstats(id, season) {
         //display player photo
         document.getElementById("playerImage").innerHTML = playerPhoto;
 
-        const row = `<tr>
-<td>Id</td>
-<td>${player.id}</td>
-</tr>
+                const row = `<tr>
+        <td>Id</td>
+        <td>${player.id}</td>
+        </tr>
 
-<tr>
-<td>Name</td>
-<td>${player.firstname} ${player.lastname}</td>
-</tr>
+        <tr>
+        <td>Name</td>
+        <td>${player.firstname} ${player.lastname}</td>
+        </tr>
 
-<tr> 
-<td>Age</td>
-<td>${player.age}</td
-</tr>
+        <tr> 
+        <td>Age</td>
+        <td>${player.age}</td
+        </tr>
 
-<tr> 
-<td>Nationality</td>
-<td>${player.nationality}</td>
-</tr>
+        <tr> 
+        <td>Nationality</td>
+        <td>${player.nationality}</td>
+        </tr>
 
-<tr>
-<td>Height</td>
-<td>${player.height}</td>
-</tr>
+        <tr>
+        <td>Height</td>
+        <td>${player.height}</td>
+        </tr>
 
-<tr>
-<td>Weight</td>
-<td>${player.weight}</td>
-</tr>`
+        <tr>
+        <td>Weight</td>
+        <td>${player.weight}</td>
+        </tr>`
 
         document.getElementById("playerStatisticsBody").innerHTML = row;
 
@@ -137,5 +120,24 @@ async function fetchPlayerStatistics(id, season) {
     } catch (error) {
         console.error(error);
     }
+
+}
+
+function searchClick(evt) {
+
+
+    const searchText = document.getElementById("searchInputText").value.toLowerCase();
+
+    if (searchText != '') {
+        var filteredPlayers = players.filter((item) => {
+            return item.player.firstname.toLowerCase().indexOf(searchText) >= 0 || item.player.lastname.toLowerCase().indexOf(searchText) >= 0
+                || (item.player.firstname + ' ' + item.player.lastname).toLowerCase().indexOf(searchText) >= 0
+        })
+        displayPlayerRows(filteredPlayers);
+    }
+    else {
+        displayPlayerRows(players);
+    }
+
 
 }

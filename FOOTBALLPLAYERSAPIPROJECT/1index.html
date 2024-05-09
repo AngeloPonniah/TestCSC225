@@ -11,26 +11,32 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 
 <script src="app/js/index.js"></script>
 
 <script>
-    //function invoked on load of page
-    displayTopScorers(); //this function is in app/js/index.js  file
+    $(document).ready(function () {
+        //function invoked on load of page
+        displayTopScorers(); //this function is in app/js/index.js  file
+
+    });
 </script>
 
 
 </head>
 
 <body>
-    <div class=".container-fluid">
+    <div class=".container-fluid topContainer">
         <h1>FootBall - Top Scorers</h1>
-        <select id="searchbar" class="selectpicker des" data-show-subtext="false" data-live-search="true">
-           
-      </select>
+     
+        <div class="form-inline my-2 my-lg-0">
+            <input id='searchInputText' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="searchClick()">Search</button>
+        </div>
         <div id="topScorers">
             <table class="topScorers table table-striped">
                 <thead>

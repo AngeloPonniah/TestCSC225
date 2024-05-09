@@ -19,6 +19,7 @@ background-color: darksalmon; /*adds a type pink color  background for odd table
 width: 100%; /*Make the table occupy full width*/
     font-size: medium;
     border-collapse: collapse; /*Adds a thin border to table cells*/
+    margin-top: 5px;
 }
 
 .topScorers th, .topScorers td {
@@ -68,3 +69,9 @@ text-align: right; /* alligns the last columns (to the right) */
         margin-top: -20px;
         background: none;
     }
+
+    .topContainer 
+    {
+        margin-left: 5px;
+    }
+    
